@@ -1,0 +1,313 @@
+{
+  "battered_locker": {
+    "name": "battered locker",
+    "aliases": ["locker", "storage locker"],
+    "description": "A standard-issue station locker, painted the kind of green that was probably meant to be reassuring and has aged into something closer to reproachful. It has a combination lock. The combination appears to have been scratched into the top of the locker at some point, then scratched out, then partially scratched back in. You can make out the first two digits: 4 and 7.",
+    "examine_detail": "The lock mechanism is a four-digit combination. The scratches suggest someone has tried many combinations before. The partially-visible numbers are 4 and 7 in the first two positions. Inside (if you can open it) you can see shadows of objects.",
+    "takeable": false,
+    "container": true,
+    "locked": true,
+    "lock_code": "4719",
+    "contents": ["rustbucket_spurs", "station_map"],
+    "location": "docking_bay_7",
+    "use_text": "The locker requires a combination. Try ENTER [code] ON LOCKER."
+  },
+  "maintenance_hatch": {
+    "name": "maintenance hatch",
+    "aliases": ["hatch", "floor hatch", "do not open hatch"],
+    "description": "A heavy hatch set into the floor, secured with a manual latch and an attitude. The label reads DO NOT OPEN in official stenciled letters. Below that, in red marker: SERIOUSLY. Below that, in a different hand: I'm not joking. Below that, in pencil, faint: (maintenance access only -- Berth 7 crew please use Gate 4).",
+    "examine_detail": "The latch mechanism is simple enough: a lever and a pressure pad. The pad requires something heavy placed on it, or held down, while the lever is pulled. It was designed to prevent accidental opening, not deliberate opening. The distinction matters.",
+    "takeable": false,
+    "container": false,
+    "locked": true,
+    "lock_mechanism": "pressure_lever",
+    "location": "docking_bay_7",
+    "use_text": "The hatch has a pressure-lever mechanism. You need to hold the pressure pad down while pulling the lever."
+  },
+  "wrench": {
+    "name": "wrench",
+    "aliases": ["spanner", "tool", "heavy wrench"],
+    "description": "A substantial wrench of the kind that gets passed down through generations of mechanics, acquiring scratches and character in equal measure. This one is large enough to hold down a pressure pad.",
+    "examine_detail": "The wrench is stamped 'PROPERTY OF DUSTPOCKET MAINTENANCE DEPT.' underneath several years of paint and use. It is heavy and satisfying to hold.",
+    "takeable": true,
+    "weight": 3,
+    "location": "maintenance_shaft",
+    "use_on": {
+      "maintenance_hatch": {
+        "effect": "set_flag:maintenance_hatch_open",
+        "text": "You wedge the wrench onto the pressure pad and pull the lever simultaneously. The hatch swings open with a groan that suggests it's been waiting for this for some time.",
+        "success": true
+      }
+    }
+  },
+  "grease_rag": {
+    "name": "grease rag",
+    "aliases": ["rag", "cloth", "dirty rag"],
+    "description": "A rag that has been used to clean things so many times it has given up on the concept of cleanliness as a goal and embraced it as an aesthetic.",
+    "examine_detail": "It's a rag. It is extremely greasy. It smells of three different kinds of lubricant and a fourth substance that doesn't correspond to anything in the station's manifest.",
+    "takeable": true,
+    "weight": 1,
+    "location": "maintenance_shaft"
+  },
+  "rustbucket_spurs": {
+    "name": "Rustbucket Spurs",
+    "aliases": ["spurs", "magnetic spurs", "boot attachments"],
+    "description": "Magnetic boot attachments shaped unmistakably like cowboy spurs — complete with a small rotating rowel that serves no functional purpose but spins satisfyingly in low gravity. They look like someone's joke that outlasted the person who made it.",
+    "examine_detail": "The spurs are actually sophisticated magnetic adhesion devices used for traversing low-gravity environments. The rowels are calibrated gyroscopes. Whoever designed them had either a very good sense of humor or a very bad sense of professionalism. Possibly both.",
+    "takeable": true,
+    "weight": 2,
+    "wearable": true,
+    "worn": false,
+    "location": null,
+    "container_location": "battered_locker",
+    "grants_flag": "wearing_spurs"
+  },
+  "station_map": {
+    "name": "station map",
+    "aliases": ["map", "dustpocket map", "map of the station"],
+    "description": "A folded map of Dustpocket Station, printed on actual paper because someone in administration believes in backup systems. It shows the main concourse, the Rusty Spur, the Sheriff's Office, the Medical Bay, the Claim Office, and the docking bays. A coffee ring partially obscures the area labeled 'MAINTENANCE ACCESS.'",
+    "examine_detail": "The map is mostly accurate. The maintenance access area is obscured by the coffee stain, but you can make out the words '...nce shaft' and 'Berth 7.' Someone has added a small penciled star near the Rusty Spur with the note 'best pie on station (only pie on station).'",
+    "takeable": true,
+    "weight": 0,
+    "location": null,
+    "container_location": "battered_locker",
+    "score_on_take": 5
+  },
+  "holographic_display": {
+    "name": "holographic display",
+    "aliases": ["display", "holo display", "notice board", "board"],
+    "description": "A public holographic display cycling through: (1) mining claim notices, (2) a wanted poster for someone called Dusty Ambrose — 'WANTED: DEAD OR ALIVE, PREFERABLY COOPERATIVE' — (3) an ad for the Clementine Star Hotel ('Rustic Comfort! All Rooms Have Floors!'), and (4) a notice that the water recycler on level 3 is 'currently underperforming.'",
+    "examine_detail": "The wanted poster for Dusty Ambrose lists their crimes as 'claim jumping, forgery, impersonating a licensed assay officer, and one count of being extremely rude to a notary public.' The reward is 500 credits. This is less than the Rustbucket Spurs are worth, which tells you something about how seriously claim jumping is taken.",
+    "takeable": false,
+    "location": "main_concourse"
+  },
+  "discarded_flyer": {
+    "name": "discarded flyer",
+    "aliases": ["flyer", "pamphlet", "paper", "leaflet"],
+    "description": "A crumpled flyer from the Free Claim Brotherhood, featuring a fist holding a pickaxe above the slogan: 'THE ASTEROID BELONGS TO THE ONE WHO MINES IT.' Beneath this, in smaller print: 'Meetup: Rusty Spur back room, Third Tuesday, Bring ID.'",
+    "examine_detail": "The back of the flyer has been used as scratch paper. Someone has written: 'Find Augusto. Ask about Clementine. DON'T mention the assay.' The handwriting is urgent.",
+    "takeable": true,
+    "weight": 0,
+    "location": "main_concourse",
+    "score_on_examine": 5
+  },
+  "bar_menu": {
+    "name": "bar menu",
+    "aliases": ["menu", "drink menu", "rusty spur menu"],
+    "description": "The Rusty Spur's menu, laminated and sticky. It lists: Vacuum Sunrise (house special), Asteroid Belt (\"contains actual belt\"), Standard Beer (\"it's beer\"), Reconstituted Coffee (\"hot\"), and today's special: Protein Jerky Plate (\"assorted\").",
+    "examine_detail": "The prices are printed in credits, with a small note at the bottom: 'We do not accept Syndicate script, Confederate Claims, or IOUs from people named Dusty.' The Vacuum Sunrise costs 8 credits and comes with a 'complimentary moment of reflection.'",
+    "takeable": false,
+    "location": "rusty_spur"
+  },
+  "empty_glass": {
+    "name": "empty glass",
+    "aliases": ["glass", "drinking glass"],
+    "description": "A glass that has been emptied, polished, and set on the bar with the quiet dignity of an object that has served its purpose and is at peace with that.",
+    "examine_detail": "There's a faint ring of dried liquid near the rim — purple, which means it held a Vacuum Sunrise at some point. There's also a small paper coaster stuck to the bottom, printed with: 'The Rusty Spur — We've Been Here Longer Than Your Problems.'",
+    "takeable": true,
+    "weight": 1,
+    "location": "rusty_spur"
+  },
+  "reward_notice": {
+    "name": "reward notice",
+    "aliases": ["notice", "posted notice", "paper notice"],
+    "description": "A printed notice pinned to a board near the bar's entrance: 'REWARD: 2,000 CREDITS for information leading to the return of the Quantum Codicil. Contact Sheriff Vasquez or Deputy TACK-7. No questions asked. (Some questions may be asked.)'",
+    "examine_detail": "The notice is signed by Sheriff Vasquez and countersigned, somewhat surprisingly, by Director Holloway of the Consolidated Mining Concern. Two thousand credits is enough to cover six months of berth fees. You feel something that might be motivation.",
+    "takeable": true,
+    "weight": 0,
+    "location": "rusty_spur",
+    "score_on_examine": 5
+  },
+  "equipment_rack": {
+    "name": "equipment rack",
+    "aliases": ["rack", "gear rack", "sheriff equipment"],
+    "description": "A wall-mounted rack holding: two emergency pressure suits (patched), a stun baton, a radio that looks like it last worked during a previous administration, and an empty hook labeled 'DEPUTY SIDEARM — SIGN OUT REQUIRED.'",
+    "examine_detail": "The stun baton is tagged 'EVIDENCE - DO NOT REMOVE' in the Sheriff's handwriting. The pressure suits are sized for someone considerably larger than you. The radio's battery indicator shows red. The empty hook makes you wonder where the sidearm is.",
+    "takeable": false,
+    "location": "sheriffs_office"
+  },
+  "crime_board": {
+    "name": "crime board",
+    "aliases": ["board", "evidence board", "investigation board"],
+    "description": "A large board covered in printouts, handwritten notes, and string — the universal language of investigation. At the center: a photograph of the Quantum Codicil. Three colored strings lead from it to photographs of: Director Holloway (blue), Augusto Claim (red), and an unknown figure labeled '???' (green).",
+    "examine_detail": "The Sheriff's notes beneath each photograph: Holloway — 'motive: obvious. alibi: claims to have been in a meeting. meeting not verified.' Claim — 'motive: obvious. alibi: claims to have been at the Brotherhood meeting. seven witnesses who are all Brotherhood members.' ???  — 'unknown party. Clem reported seeing them. Description: average height, unremarkable, disappeared.' This describes approximately forty percent of Dustpocket's population.",
+    "takeable": false,
+    "location": "sheriffs_office",
+    "score_on_examine": 10
+  },
+  "paperwork_pile": {
+    "name": "paperwork pile",
+    "aliases": ["papers", "paperwork", "pile of papers", "forms"],
+    "description": "A pile of forms, reports, and complaints that has achieved geological strata. The oldest layer, at the bottom, dates from three years ago. You can tell by the faded ink and the slightly desperate handwriting.",
+    "examine_detail": "Rifling through the pile (carefully, so nothing collapses), you find: fourteen incident reports, twenty-two claim disputes, one letter from Station Admin asking the Sheriff to 'please respond to our previous six letters,' and a birthday card addressed to someone named Jerry. You hope Jerry got their card.",
+    "takeable": false,
+    "location": "sheriffs_office"
+  },
+  "first_aid_kit": {
+    "name": "first aid kit",
+    "aliases": ["kit", "medical kit", "aid kit", "first aid"],
+    "description": "A bright orange case labeled FIRST AID in four languages. It is fully stocked, which is either reassuring (someone maintains it) or worrying (nobody has needed it lately — or needed it and didn't make it).",
+    "examine_detail": "Contents: bandages, antiseptic spray, pain relief tablets, a tourniquet, and a card that says 'Remember: stay calm. The panic comes later.' The card was apparently added by a previous medic. It is unclear whether it was meant to be comforting.",
+    "takeable": true,
+    "weight": 2,
+    "location": "medical_bay",
+    "heals": 20
+  },
+  "medic_note": {
+    "name": "medic note",
+    "aliases": ["note", "doctor note", "medical note"],
+    "description": "A handwritten note left on the examination table: 'BACK IN 20 MIN. If bleeding, apply pressure. If not breathing, see attached guide. If it's complicated, wait.' Signed: Dr. T. Reyes.",
+    "examine_detail": "The note has a postscript: 'If you're here about the medicine cabinet: the combination rotates every seven days. Today's hint: the number of planets in the Kepler-442 system, times the number of moons of Europa, plus the year Dustpocket Station was commissioned. Ask the clerk if you need the year.' This is unhelpfully specific.",
+    "takeable": true,
+    "weight": 0,
+    "location": "medical_bay"
+  },
+  "medicine_cabinet": {
+    "name": "medicine cabinet",
+    "aliases": ["cabinet", "pharmacy cabinet", "locked cabinet"],
+    "description": "A pharmacy cabinet secured with a rotating combination lock. The lock face shows four digits. A small note attached reads: 'Combination changes weekly. This week's hint is on the medic's note.'",
+    "examine_detail": "The cabinet contains supplies behind its frosted window. You can see what looks like pain medication, stimulants (labeled 'EMERGENCY USE ONLY'), and a bottle of something the label calls 'General Purpose Remedy,' which is either very versatile medicine or a cover for something more interesting.",
+    "takeable": false,
+    "container": true,
+    "locked": true,
+    "lock_code": "2026",
+    "contents": ["stimulant_tabs", "general_remedy"],
+    "location": "medical_bay"
+  },
+  "stimulant_tabs": {
+    "name": "stimulant tablets",
+    "aliases": ["stimulants", "tabs", "tablets", "emergency stims"],
+    "description": "A blister pack of twelve tablets labeled 'EMERGENCY STIMULANT — AUTHORIZED PERSONNEL ONLY.' They are about the size and shape of something that would be very convenient to slip into a pocket.",
+    "examine_detail": "The fine print says: 'For use in emergency situations requiring extended alertness. Side effects include: mild tremors, over-confidence, the persistent feeling that you've thought of everything. Duration: 4 hours.' The over-confidence side effect seems like it could go either way.",
+    "takeable": true,
+    "weight": 0,
+    "heals": 30,
+    "use_text": "You take the stimulant tablets. A familiar clarity arrives — sharp-edged and slightly too much. You can feel yourself being alert at your problems.",
+    "location": null,
+    "container_location": "medicine_cabinet"
+  },
+  "general_remedy": {
+    "name": "general remedy",
+    "aliases": ["remedy", "medicine", "general purpose remedy", "bottle"],
+    "description": "A small glass bottle labeled 'GENERAL PURPOSE REMEDY — DR. REYES FORMULATION.' The liquid inside is an optimistic yellow.",
+    "examine_detail": "There's no ingredients list, which is either because the formula is proprietary or because listing the ingredients would raise questions. The dosage instructions say: 'Take one spoonful when needed. More is not better. You'll know when you need it.' This is the least helpful medical instruction you've ever read.",
+    "takeable": true,
+    "weight": 1,
+    "location": null,
+    "container_location": "medicine_cabinet",
+    "heals": 10
+  },
+  "claim_registry": {
+    "name": "claim registry",
+    "aliases": ["registry", "register", "claims register", "book"],
+    "description": "A thick ledger bound in something that is trying very hard to be leather. It contains every registered claim on asteroids in the LV-7 sector, dating back forty years. The entries are meticulous, cross-referenced, and fascinating if you are the sort of person who finds claim histories fascinating, which is a specific sort of person.",
+    "examine_detail": "Searching the index for LV-7-Gamma (Clementine): Claim #4,891-B, registered to Consolidated Mining Concern, Year 14. Status: ACTIVE, DORMANT. The Concern hasn't mined a gram of it. Cross-reference to: Codicil Transfer Form 7G, Status: MISSING FROM FILE. Someone has written in the margin in pencil: 'Holloway took it??'",
+    "takeable": false,
+    "location": "mining_claim_office",
+    "score_on_examine": 10
+  },
+  "clerk_counter": {
+    "name": "clerk's counter",
+    "aliases": ["counter", "window", "service window"],
+    "description": "The counter is separated from the public by a window of scratched transparent aluminum and an atmosphere of mutual wariness. The clerk on the other side is processing something on a terminal and demonstrating the professional's gift for appearing extremely busy in a way that discourages interaction.",
+    "examine_detail": "The counter has a small slot for passing documents and a speaker grille for communication. The grille has a handwritten note: 'PLEASE SPEAK CLEARLY AND DO NOT YELL. This is a place of business.' The second sentence was clearly added after the first became necessary.",
+    "takeable": false,
+    "location": "mining_claim_office"
+  },
+  "plasma_revolver": {
+    "name": "plasma revolver",
+    "aliases": ["revolver", "gun", "plasma gun", "sidearm", "pistol"],
+    "description": "A plasma revolver of the kind that used to be standard-issue for frontier deputies before budget cuts introduced a new standard called 'stern warnings.' It's loaded. It's reliable. It's the kind of object that solves some problems and creates others.",
+    "examine_detail": "The revolver is engraved on the grip: 'To Marta — Don't miss.' Below that, in smaller letters: 'Love, Dad.' It's not yours. It belongs to Sheriff Vasquez, and you found it here, which raises the question of where the Sheriff is and whether she's all right.",
+    "takeable": true,
+    "weight": 2,
+    "location": "maintenance_shaft",
+    "score_on_take": 10,
+    "use_text": "You turn the revolver over in your hands. It's loaded, well-maintained, and belongs to someone else. The engraving on the grip makes that very clear."
+  },
+  "protein_jerky": {
+    "name": "protein jerky",
+    "aliases": ["jerky", "food", "snack", "dried food"],
+    "description": "A strip of protein jerky from the Rusty Spur's kitchen, half-eaten by someone who has now reconsidered their life choices and left the rest on a table.",
+    "examine_detail": "The packaging, still attached to the uneaten portion, reads: 'FRONTIER FUEL: PROTEIN JERKY — Made from 100% protein. Source: unspecified. Flavor: aggressive.' It smells like something that has been through a lot and is very proud of it.",
+    "takeable": true,
+    "weight": 0,
+    "location": "rusty_spur",
+    "heals": 5
+  },
+  "quantum_codicil": {
+    "name": "Quantum Codicil",
+    "aliases": ["codicil", "data crystal", "crystal", "quantum crystal"],
+    "description": "The Quantum Codicil is about the size of your thumb and shifts color when you move it — not quite iridescent, more like it contains several opinions about light simultaneously. It is warm to the touch, which is unusual for a data storage device and slightly unsettling.",
+    "examine_detail": "The Codicil contains the deed to Asteroid LV-7-Gamma (Clementine) in an encrypted format that requires a Syndicate-certified reader to decode. It also contains, according to rumor, some secondary data that nobody has admitted to knowing about. The warmth is real. You have no explanation for it.",
+    "takeable": true,
+    "weight": 0,
+    "location": null,
+    "note": "Found in codicil_safe after solving Syndicate puzzle",
+    "score_on_take": 50
+  },
+  "codicil_safe": {
+    "name": "secure safe",
+    "aliases": ["safe", "wall safe", "codicil safe"],
+    "description": "A wall safe set behind what appears to be a framed star chart. It has a biometric lock — palm scanner — which is either very high security or a very pointed message about who this is for.",
+    "examine_detail": "The palm scanner has been modified. Someone has added a secondary input: a card reader. This suggests the safe can be opened with a keycard as an alternative to biometrics. It also suggests someone wanted a backup, which is either prudent planning or guilty conscience.",
+    "takeable": false,
+    "container": true,
+    "locked": true,
+    "lock_mechanism": "keycard",
+    "contents": ["quantum_codicil"],
+    "location": "syndicate_inner_office"
+  },
+  "syndicate_keycard": {
+    "name": "Syndicate keycard",
+    "aliases": ["keycard", "card", "access card", "syndicate card"],
+    "description": "A slim keycard bearing the Syndicate's ouroboros logo, laminated in the kind of material that conveys importance. It is coded for access to somewhere specific.",
+    "examine_detail": "The keycard is unmarked except for the logo and a small number: 7. Seven is Berth Seven. It's also the number of the safe, if the Syndicate uses a consistent numbering system, which bureaucratic organizations tend to.",
+    "takeable": true,
+    "weight": 0,
+    "location": null,
+    "note": "Found on accountant prisoner after persuasion"
+  },
+  "ornate_chair": {
+    "name": "ornate chair",
+    "aliases": ["chair", "waiting chair"],
+    "description": "A single chair, clearly placed for a specific purpose: making whoever sits in it feel like they are being seen. It is comfortable but positioned so that the light from the corridor falls across your face. Whoever furnished this anteroom understood something about power.",
+    "examine_detail": "There's a small panel under the seat. It opens to reveal a storage space containing: nothing. Someone has been here before you.",
+    "takeable": false,
+    "location": "syndicate_anteroom"
+  },
+  "syndicate_pamphlet": {
+    "name": "Syndicate pamphlet",
+    "aliases": ["pamphlet", "brochure"],
+    "description": "A glossy pamphlet titled 'THE OUTER SPRAWL STATION SYNDICATE: Partners in Prosperity.' It features photographs of smiling miners, efficiently operating equipment, and a sunset over Clementine that has clearly been retouched to look warmer than any rock in this sector actually gets.",
+    "examine_detail": "Page 7 of the pamphlet contains a pull quote from Director Holloway: 'The Syndicate exists to ensure that Dustpocket Station serves everyone's needs. Everyone's.' The word 'everyone's' appears twice. This is either a typo or a philosophical position.",
+    "takeable": true,
+    "weight": 0,
+    "location": "syndicate_anteroom"
+  },
+  "secure_terminal": {
+    "name": "secure terminal",
+    "aliases": ["terminal", "computer terminal", "workstation"],
+    "description": "A terminal that is currently displaying a screensaver of slowly rotating stars. It requires authentication to use. The keyboard is real — mechanical, satisfying — which tells you the Director has opinions about the relationship between serious work and proper tools.",
+    "examine_detail": "The terminal has two input methods: a password field and a keycard reader. The keycard reader is the same type as the one on the safe. If you had the right keycard...",
+    "takeable": false,
+    "location": "syndicate_inner_office"
+  },
+  "cell_key_hook": {
+    "name": "key hook",
+    "aliases": ["hook", "key ring", "cell keys"],
+    "description": "A hook on the wall bearing a ring of physical keys — old-fashioned, mechanical backups for the electronic locks. This is either redundancy planning or someone who doesn't trust the electronics, which in a mining station is a reasonable position.",
+    "examine_detail": "One key on the ring is labeled '3' in scratched numerals. Cell three is empty. The key to cell two is not here.",
+    "takeable": false,
+    "location": "holding_cells"
+  },
+  "miner_belongings": {
+    "name": "miner's belongings",
+    "aliases": ["belongings", "miner bag", "bag", "effects"],
+    "description": "A bag of personal effects belonging to the sleeping miner, left outside their cell. It seems rude to go through it. It also seems like exactly the kind of thing you might do anyway.",
+    "examine_detail": "The bag contains: a change of clothes, a claim receipt for asteroid section 7-G (Clementine), a family photograph, and a small notebook. The notebook's last entry reads: 'Heard Augusto say the Codicil's not where they think it is. What does that mean?' The miner heard something important and is now in jail. The universe is either ironic or efficient.",
+    "takeable": false,
+    "location": "holding_cells",
+    "score_on_examine": 10
+  }
+}

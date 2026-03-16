@@ -1,0 +1,440 @@
+/* =========================================================
+   GUNS, GRIT & GRAVITY — Retro CRT Terminal Stylesheet
+   1980s phosphor monitor aesthetic, modern layout
+   ========================================================= */
+
+/* --- Reset & base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:        #33ff57;
+  --green-dim:    #1a7a2a;
+  --green-bright: #80ffaa;
+  --amber:        #ffb347;
+  --red:          #ff4455;
+  --dim:          #3a5a3a;
+  --bg:           #050c05;
+  --bg-panel:     #080f08;
+  --border:       #1a3a1a;
+  --glow:         0 0 6px #33ff57, 0 0 14px #33ff5755;
+  --glow-bright:  0 0 8px #80ffaa, 0 0 20px #33ff5799;
+  --glow-amber:   0 0 6px #ffb347, 0 0 14px #ffb34755;
+  --font-main:    'VT323', 'Courier New', monospace;
+  --font-mono:    'Share Tech Mono', 'Courier New', monospace;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+/* =========================================================
+   CRT outer shell / bezel — fills the full viewport
+   ========================================================= */
+.crt-outer {
+  width:  100vw;
+  height: 100vh;
+  background: #000;
+  padding: 0;
+}
+
+.crt-bezel {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+/* =========================================================
+   CRT screen — the green-glowing rectangle
+   ========================================================= */
+.crt-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.5);
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Vignette / screen edge darkening */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  pointer-events: none;
+  z-index: 11;
+}
+
+/* =========================================================
+   Terminal layout
+   ========================================================= */
+.terminal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: var(--font-main);
+  font-size: 20px;
+  color: var(--green);
+  line-height: 1.45;
+}
+
+/* --- Header bar --- */
+.term-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.term-title {
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-shadow: var(--glow);
+  color: var(--green-bright);
+}
+
+.term-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-family: var(--font-mono);
+  color: var(--green-dim);
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.status-dot.connected {
+  background: var(--green);
+  box-shadow: var(--glow);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.status-dot.disconnected {
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+/* --- Scrollable output --- */
+.output-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 18px 4px;
+  scroll-behavior: smooth;
+}
+
+.output-area::-webkit-scrollbar { width: 6px; }
+.output-area::-webkit-scrollbar-track { background: var(--bg); }
+.output-area::-webkit-scrollbar-thumb {
+  background: var(--dim);
+  border-radius: 3px;
+}
+
+/* --- Stats bar --- */
+.stats-bar {
+  display: flex;
+  gap: 24px;
+  padding: 4px 18px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel);
+  font-size: 14px;
+  font-family: var(--font-mono);
+  color: var(--green-dim);
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.stats-bar span { transition: color 0.2s; }
+.stats-bar span.updated {
+  color: var(--green-bright);
+  text-shadow: var(--glow-bright);
+}
+
+/* --- Input area --- */
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+  flex-shrink: 0;
+}
+
+.prompt-glyph {
+  color: var(--green-bright);
+  font-size: 22px;
+  text-shadow: var(--glow-bright);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.cmd-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--green-bright);
+  font-family: var(--font-main);
+  font-size: 20px;
+  caret-color: var(--green-bright);
+  text-shadow: var(--glow);
+  letter-spacing: 1px;
+}
+
+.cmd-input::placeholder {
+  color: var(--dim);
+  text-shadow: none;
+}
+
+.cmd-input:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.send-btn {
+  background: transparent;
+  border: 1px solid var(--dim);
+  color: var(--green-dim);
+  font-family: var(--font-main);
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.send-btn:hover:not(:disabled) {
+  border-color: var(--green);
+  color: var(--green-bright);
+  text-shadow: var(--glow);
+  box-shadow: 0 0 8px rgba(51,255,87,0.3);
+}
+
+.send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* =========================================================
+   Message types
+   ========================================================= */
+
+/* Base message row */
+.msg {
+  display: block;
+  margin: 0;
+  padding: 1px 0;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/* Echo of the player's own command */
+.msg-echo {
+  color: var(--green-bright);
+  opacity: 0.7;
+  font-size: 19px;
+  margin: 6px 0 2px;
+}
+.msg-echo::before { content: '> '; }
+
+/* Blank spacer */
+.msg-blank { display: block; height: 0.6em; }
+
+/* Separator */
+.msg-separator {
+  display: block;
+  border: none;
+  border-top: 1px solid var(--dim);
+  margin: 6px 0;
+  opacity: 0.5;
+}
+
+/* Room location header */
+.msg-location {
+  display: block;
+  font-size: 26px;
+  letter-spacing: 4px;
+  color: var(--green-bright);
+  text-shadow: var(--glow-bright);
+  margin-top: 10px;
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Main narrative text */
+.msg-text {
+  color: var(--green);
+  text-shadow: 0 0 4px #33ff5733;
+  font-size: 20px;
+}
+
+/* Error / failure */
+.msg-error {
+  color: var(--red);
+  text-shadow: 0 0 6px #ff444555;
+}
+
+/* System notification (item taken, saved, etc.) */
+.msg-system {
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  font-size: 18px;
+}
+
+/* NPC name header */
+.msg-npc-name {
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  margin-top: 8px;
+}
+
+/* Footnote */
+.msg-footnote {
+  color: var(--green-dim);
+  font-size: 17px;
+  font-family: var(--font-mono);
+  padding-left: 12px;
+  border-left: 2px solid var(--dim);
+  margin: 4px 0;
+  opacity: 0.75;
+}
+.msg-footnote::before { content: '* '; }
+
+/* Inventory item line */
+.msg-item-line {
+  color: var(--green);
+  padding-left: 8px;
+  font-size: 19px;
+}
+
+/* Dialogue option */
+.msg-dialogue-option {
+  color: var(--green-bright);
+  font-size: 19px;
+  padding-left: 4px;
+  cursor: default;
+}
+
+/* Title line */
+.msg-title-line {
+  display: block;
+  font-size: 28px;
+  letter-spacing: 5px;
+  color: var(--green-bright);
+  text-shadow: var(--glow-bright);
+  text-align: center;
+  margin: 4px 0;
+}
+
+/* Score display */
+.msg-score {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  color: var(--green-dim);
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  display: inline-block;
+  margin: 4px 0;
+}
+
+/* Game over */
+.msg-game-over {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  letter-spacing: 6px;
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  margin: 16px 0;
+  animation: flicker 0.3s step-end 3;
+}
+
+/* Death line */
+.msg-death-line {
+  color: var(--red);
+  font-size: 19px;
+}
+
+/* Quit message */
+.msg-quit {
+  color: var(--green-dim);
+  font-style: italic;
+  font-size: 19px;
+}
+
+/* =========================================================
+   Staggered reveal — CSS-driven, no JS timers
+   ========================================================= */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msg-stagger {
+  opacity: 0;
+  animation: reveal 80ms ease-out forwards;
+}
+
+/* =========================================================
+   CRT flicker animation (subtle)
+   ========================================================= */
+@keyframes flicker {
+  0%   { opacity: 1; }
+  25%  { opacity: 0.85; }
+  50%  { opacity: 1; }
+  75%  { opacity: 0.92; }
+  100% { opacity: 1; }
+}
+
+.crt-screen {
+  animation: flicker 8s step-end infinite;
+}
+
+/* =========================================================
+   Responsive: phones
+   ========================================================= */
+@media (max-width: 600px) {
+  .terminal   { font-size: 17px; }
+  .term-title { font-size: 18px; letter-spacing: 1px; }
+  .msg-location { font-size: 22px; }
+  .stats-bar  { font-size: 12px; gap: 12px; }
+}

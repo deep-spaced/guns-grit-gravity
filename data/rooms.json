@@ -1,0 +1,127 @@
+{
+  "docking_bay_7": {
+    "name": "Docking Bay 7",
+    "description": "The docking bay smells of engine coolant and ambition, neither of which has aged well. Your ship — the Bellerophon, though you've been meaning to rename it to something that doesn't tempt fate quite so aggressively — sits in berth seven, looking the way it always does: technically spaceworthy, philosophically ambivalent.\n\nThe main concourse lies to the north. A maintenance hatch is set into the floor, sealed and labelled DO NOT OPEN. Someone has added \"SERIOUSLY\" in red marker. A battered locker stands against the east wall.",
+    "footnote": "Berth seven is considered unlucky by everyone except the people who assign berths, who consider it conveniently cheap to maintain.",
+    "exits": {
+      "north": "main_concourse",
+      "down": "maintenance_shaft"
+    },
+    "items": ["battered_locker", "maintenance_hatch"],
+    "npcs": [],
+    "flags": {}
+  },
+  "maintenance_shaft": {
+    "name": "Maintenance Shaft",
+    "description": "The maintenance shaft is exactly what it sounds like: a narrow, poorly-lit tube of corrugated metal that smells of lubricant and poor decisions. Pipes run along every surface, labeled with acronyms nobody remembers the meaning of anymore. The hatch back up to the docking bay is above you.\n\nAt the far end of the shaft, a junction splits east and west. Someone has drawn a small arrow pointing east, with the word 'OFFICE' written beneath it in a hand that suggests the author was either very small or very nervous.",
+    "footnote": "HVAC stands for Heating, Ventilation, and Air Conditioning. Nobody ever wonders what the acronym for the station's actual life support system is, which is probably for the best.",
+    "exits": {
+      "up": "docking_bay_7",
+      "east": "syndicate_anteroom"
+    },
+    "items": ["wrench", "grease_rag", "plasma_revolver"],
+    "npcs": [],
+    "flags": {
+      "requires_flag": "maintenance_hatch_open"
+    }
+  },
+  "main_concourse": {
+    "name": "Main Concourse",
+    "description": "The concourse is Dustpocket Station's attempt at civic pride. It has a high ceiling, which would be impressive if the ceiling weren't streaked with mineral deposits from a leak that has been 'under assessment' for three years. A holographic display cycles through mining claim notices, wanted posters, and an advertisement for Clementine's only hotel, which describes itself as 'rustic' and means it.\n\nThe docking bays lie to the south. To the west is the Rusty Spur Saloon, recognizable by the sound of a stringed instrument being played with more confidence than skill. The Sheriff's Office is to the east. The Mining Claim Office is to the north, its door flanked by a sign reading 'ALL CLAIMS FINAL. NO EXCEPTIONS. THIS MEANS YOU.'",
+    "footnote": "The wanted posters cycle through with the same faces most weeks. The most-wanted criminal on Dustpocket is listed as 'various' under aliases, which the Sheriff considers a personal affront.",
+    "exits": {
+      "south": "docking_bay_7",
+      "west": "rusty_spur",
+      "east": "sheriffs_office",
+      "north": "mining_claim_office"
+    },
+    "items": ["holographic_display", "discarded_flyer"],
+    "npcs": ["deputy_tack7"],
+    "flags": {}
+  },
+  "rusty_spur": {
+    "name": "The Rusty Spur Saloon",
+    "description": "The Rusty Spur is what you get when someone opens a bar in space and decides that what space really needs is authenticity. The floor is actual wood — imported, incredibly expensive, scuffed to a warm brown by boots that have walked more interesting places than this. The bar itself is made from the hull panel of a ship called, according to the plaque, the Lucky Meridian. The Lucky Meridian's fate is not discussed.\n\nTables fill most of the room, currently occupied by miners nursing drinks and grievances in roughly equal measure. Behind the bar, Clem Duster polishes a glass with a rag that has achieved its own philosophical position on the concept of cleanliness.\n\nThe concourse is to the east.",
+    "footnote": "The Rusty Spur's house special is called the Vacuum Sunrise. It tastes like regret mixed with optimism, which is to say it tastes like the frontier.",
+    "exits": {
+      "east": "main_concourse"
+    },
+    "items": ["bar_menu", "empty_glass", "reward_notice"],
+    "npcs": ["clem_duster", "augusto_claim"],
+    "flags": {}
+  },
+  "sheriffs_office": {
+    "name": "Sheriff's Office",
+    "description": "The Sheriff's Office smells of paperwork. This is not a metaphor — there is so much actual paper here that it has developed its own microclimate. Stacks of forms, reports, complaints, and counter-complaints lean against every wall. A large desk occupies the center of the room, currently occupied by Sheriff Vasquez, who is performing the administrative equivalent of bailing out a sinking ship with a teaspoon.\n\nA locked door in the north wall leads to the holding cells. A rack of equipment on the west wall holds gear that looks like it hasn't been audited since the station was commissioned.\n\nThe concourse is to the west.",
+    "footnote": "The holding cells currently contain one miner arrested for 'claim jumping, attempted,' one Syndicate accountant detained for 'being extremely suspicious in a public space,' and a small robot that wandered in and hasn't left. The robot seems content.",
+    "exits": {
+      "west": "main_concourse",
+      "north": "holding_cells"
+    },
+    "items": ["equipment_rack", "crime_board", "paperwork_pile"],
+    "npcs": ["sheriff_vasquez"],
+    "flags": {
+      "requires_flag": null
+    }
+  },
+  "holding_cells": {
+    "name": "Holding Cells",
+    "description": "Three cells face a narrow corridor, each secured with an electromagnetic lock that the station's vendor describes as 'extremely secure' and the Sheriff describes as 'functional, mostly.' Two cells are occupied. The third is not.\n\nThe miner in cell one is asleep. The Syndicate accountant in cell two is reading a spreadsheet on a handheld device, which makes you feel something complicated about human resilience.\n\nThe Sheriff's Office is to the south.",
+    "footnote": "The small robot that also lives here has been categorized as 'miscellaneous detainee' in the station's records. It has decorated its cell with labels from food canisters. The Sheriff has decided not to address this.",
+    "exits": {
+      "south": "sheriffs_office"
+    },
+    "items": ["cell_key_hook", "miner_belongings"],
+    "npcs": ["accountant_prisoner"],
+    "flags": {}
+  },
+  "mining_claim_office": {
+    "name": "Mining Claim Office",
+    "description": "The Mining Claim Office is the bureaucratic heart of Dustpocket Station, which means it is also the place where dreams come to fill out forms in triplicate. The walls are lined with filing cabinets of a vintage that suggests they were old before the station was built. A clerk sits behind a counter protected by a window of scratched transparent aluminum and a sign reading 'PLEASE HAVE YOUR CLAIM NUMBER READY.' Nobody ever has their claim number ready.\n\nThe concourse is to the south.",
+    "footnote": "Asteroid LV-7-Gamma was officially registered as claim #4,891-B by the Consolidated Mining Concern some fourteen years ago. The Concern has never done anything with it, on the grounds that doing nothing is cheaper than doing something and the claim is still technically valid.",
+    "exits": {
+      "south": "main_concourse"
+    },
+    "items": ["claim_registry", "clerk_counter"],
+    "npcs": ["claim_clerk"],
+    "flags": {}
+  },
+  "medical_bay": {
+    "name": "Medical Bay",
+    "description": "The medical bay is clean, which is more than can be said for most of Dustpocket Station. It smells of antiseptic and mild anxiety. Two examination beds line one wall. A pharmacy cabinet occupies the other, locked with a code that the on-call medic changes every week and then forgets.\n\nThe medic — currently absent — has left a note that reads: 'BACK IN 20 MIN. If bleeding, apply pressure. If not breathing, see attached guide.' The attached guide is a laminated card with eight steps, six of which begin with the word 'carefully.'\n\nThe concourse is to the south.",
+    "footnote": "Dustpocket Station's medical bay was rated 'adequate' in its last inspection, which was five years ago. The rating has not been revised since, on the principle that if nobody is officially checking, nothing is officially wrong.",
+    "exits": {
+      "south": "main_concourse"
+    },
+    "items": ["first_aid_kit", "medic_note", "medicine_cabinet"],
+    "npcs": [],
+    "flags": {}
+  },
+  "syndicate_anteroom": {
+    "name": "Syndicate Anteroom",
+    "description": "You have found the part of Dustpocket Station that is not on any official map. The anteroom is small, neat, and furnished with the kind of quiet confidence that expensive taste produces when it doesn't need to show off. A single light source — recessed, warm — gives the room the ambience of a place where decisions are made and then not discussed.\n\nA heavy door to the east is marked with the Syndicate's symbol: an ouroboros made of trade routes. It is locked. A narrow corridor leads west back to the maintenance shaft.",
+    "footnote": "The Syndicate's official position is that they do not have an anteroom beneath Dustpocket Station. The anteroom does not dispute this. It simply exists, as quietly as possible, which is the Syndicate's preferred mode of operation.",
+    "exits": {
+      "west": "maintenance_shaft",
+      "east": "syndicate_inner_office"
+    },
+    "items": ["syndicate_pamphlet", "ornate_chair"],
+    "npcs": [],
+    "flags": {
+      "requires_flag": "found_syndicate"
+    }
+  },
+  "syndicate_inner_office": {
+    "name": "Syndicate Inner Office",
+    "description": "Director Holloway's office is the kind of room that understands the value of understatement. The desk is real wood — different wood from the Rusty Spur's floor, better wood, wood that has been somewhere and chosen this desk deliberately. The chair behind it is currently occupied.\n\nDirector Fen Holloway looks up from whatever she was doing with the expression of someone who was expecting you, which is unsettling because you were not expecting to be expected.\n\n\"Sit,\" she says. It is not a request.\n\nThe anteroom is to the west.",
+    "footnote": "The Quantum Codicil, if you were wondering, is not visible anywhere in this office. Director Holloway keeps things she values out of sight. This is a philosophy that has served her well.",
+    "exits": {
+      "west": "syndicate_anteroom"
+    },
+    "items": ["secure_terminal", "codicil_safe"],
+    "npcs": ["director_holloway"],
+    "flags": {
+      "requires_flag": "syndicate_door_open"
+    }
+  }
+}

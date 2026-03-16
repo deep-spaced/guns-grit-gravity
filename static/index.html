@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUNS, GRIT &amp; GRAVITY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="crt-outer">
+    <div class="crt-bezel">
+      <div class="crt-screen">
+
+        <!-- Overlay effects -->
+        <div class="scanlines" aria-hidden="true"></div>
+        <div class="vignette"  aria-hidden="true"></div>
+
+        <!-- Terminal UI -->
+        <div class="terminal">
+
+          <!-- Header bar -->
+          <header class="term-header">
+            <span class="term-title">GUNS, GRIT &amp; GRAVITY</span>
+            <span class="term-meta">
+              <span class="status-dot" id="status-dot"></span>
+              <span id="status-label">CONNECTING…</span>
+            </span>
+          </header>
+
+          <!-- Scrollable output -->
+          <main class="output-area" id="output" role="log" aria-live="polite" aria-label="Game output"></main>
+
+          <!-- Stats bar -->
+          <div class="stats-bar" id="stats-bar" style="display:none">
+            <span id="stat-score">SCORE: 0</span>
+            <span id="stat-credits">CREDITS: 100</span>
+            <span id="stat-turns">TURN: 0</span>
+            <span id="stat-rank">RANK: LOST</span>
+          </div>
+
+          <!-- Input area -->
+          <footer class="input-area">
+            <span class="prompt-glyph" aria-hidden="true">&gt;</span>
+            <input
+              type="text"
+              id="cmd-input"
+              class="cmd-input"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="type a command…"
+              aria-label="Command input"
+              disabled
+            />
+            <button id="send-btn" class="send-btn" disabled>SEND</button>
+          </footer>
+
+        </div><!-- /.terminal -->
+      </div><!-- /.crt-screen -->
+    </div><!-- /.crt-bezel -->
+  </div><!-- /.crt-outer -->
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

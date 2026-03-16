@@ -1,0 +1,237 @@
+{
+  "deputy_tack7": {
+    "name": "Deputy TACK-7",
+    "aliases": ["tack", "tack7", "deputy", "android deputy", "robot deputy"],
+    "description": "Deputy TACK-7 is an android of a model that was discontinued eight years ago, which the Deputy is aware of and has made a considered peace with. They stand in the concourse with the particular stillness of a machine that has decided to be patient about the universe's disorder.",
+    "examine_detail": "TACK-7's chassis shows the wear of years in service — scratches, a repainted left arm, a small dent in one shoulder that the Deputy once explained was 'a learning experience involving a claim dispute and a multi-tool.' Their eyes are amber and scan the room with methodical regularity. Every forty seconds, exactly.",
+    "location": "main_concourse",
+    "dialogue": {
+      "greeting": "Deputy TACK-7 turns to face you with the precise efficiency of a machine that doesn't waste movements. \"Citizen. I am Deputy TACK-7. I am currently performing a security assessment of the concourse. Are you planning to commit a crime today?\" They pause. \"That was a standard procedural question. If you say yes, I am required to act on it.\"",
+      "topics": {
+        "codicil": {
+          "text": "\"The Quantum Codicil.\" TACK-7's voice takes on a quality that might be called weight. \"Its disappearance represents the highest-priority case in my operational history. The Sheriff has classified it Level Red. I have cross-referenced all available sensor data. My conclusion: the Codicil was removed by a person or persons familiar with my patrol schedule.\" A pause. \"My patrol schedule is public record. This narrows the suspect pool to everyone on the station.\"",
+          "sets_flag": "knows_codicil_stolen"
+        },
+        "sheriff": {
+          "text": "\"Sheriff Vasquez is currently in her office, processing incident reports. She processes incident reports the way water processes a hole: persistently and with eventual results.\" TACK-7 seems to consider this. \"That was a metaphor. I have been working on metaphors. The Sheriff suggested it would help me relate to witnesses.\"",
+          "sets_flag": null
+        },
+        "patrol": {
+          "text": "\"My patrol route covers the concourse, docking bays one through nine, and the Claim Office corridor. I do not patrol the maintenance levels, as I am not rated for confined spaces following the Incident.\" TACK-7 does not elaborate on the Incident. Their expression, if it can be called that, suggests they have made a decision to continue not elaborating.",
+          "sets_flag": "knows_tack7_patrol"
+        },
+        "help": {
+          "text": "\"If you wish to assist the investigation, I would suggest speaking with Sheriff Vasquez, Clem Duster at the Rusty Spur, and the clerk at the Mining Claim Office. Three separate witnesses have reported a fourth party on the station in the hours before the Codicil went missing. I call this party 'Unknown Individual: Green String.' The Sheriff calls them 'the lead I can't pin down.'\"",
+          "sets_flag": "tack7_helped"
+        },
+        "joke": {
+          "text": "\"A joke?\" TACK-7 processes this. \"I know jokes. The Sheriff told me one. Why don't scientists trust atoms?\" A pause. \"Because they make up everything.\" Another pause. \"I understand why this is funny. Atoms are the constituent material of physical reality, and the phrase 'make up' is used both to describe fabrication and atomic composition. The joke contains a successful dual-meaning construction.\" TACK-7 does not laugh. \"I found it significantly more satisfying to explain than to receive.\"",
+          "sets_flag": null
+        }
+      },
+      "default": "TACK-7 regards your question with the careful attention of a machine that takes everything seriously and has learned that this is sometimes considered amusing. \"I don't have specific information on that topic. I can tell you what I know about station security, the Codicil investigation, the Sheriff, or my patrol schedule.\""
+    }
+  },
+  "clem_duster": {
+    "name": "Clem Duster",
+    "aliases": ["clem", "bartender", "barkeep", "duster"],
+    "description": "Clem Duster is the kind of bartender that a frontier bar deserves: efficient, observant, and possessed of the philosophical outlook that comes from spending years listening to people explain their problems over drinks. Clem is tall, laconic, and currently polishing a glass with the same rag that has polished ten thousand glasses before it and will polish ten thousand more.",
+    "examine_detail": "Clem has the kind of face that has seen everything and declined to be surprised by it. There are lines around the eyes that might be from squinting against solar glare or might be from decades of hearing remarkable things and reacting to them only slightly. They wear a vest covered in small pockets, each containing something useful that they will produce at exactly the right moment.",
+    "location": "rusty_spur",
+    "dialogue": {
+      "greeting": "Clem Duster looks up from the glass with the unhurried attention of someone who has decided that everything can wait until they've finished polishing. \"Drifter,\" they say, by way of greeting, acknowledgment, and complete biography. \"What can I get you?\"",
+      "topics": {
+        "drink": {
+          "text": "\"Vacuum Sunrise is the house special. Eight credits. It tastes like regret mixed with optimism, which, in my professional opinion, is the only appropriate way to drink in space.\" Clem sets a glass on the bar. \"Or there's beer. Beer is beer.\"",
+          "sets_flag": null
+        },
+        "codicil": {
+          "text": "Clem pauses in their polishing. The pause is meaningful in the way that a long silence during a card game is meaningful: it tells you something, and it tells you that something is being decided.\n\n\"Heard about the Codicil. Yeah.\" Clem resumes polishing. \"I see a lot of things from behind this bar. People think you stop noticing after a while. That's not how it works.\" Another pause. \"What's it worth to you to know what I noticed?\"",
+          "sets_flag": "clem_codicil_available",
+          "requires_credits": 50
+        },
+        "codicil_info": {
+          "text": "Clem leans across the bar and speaks quietly, which in the Rusty Spur means they're being serious.\n\n\"Night before the Codicil went missing. Saw someone I didn't recognize — average height, average build, forgettable face. The kind of face that's trying to be forgettable. They sat in that corner for two hours, nursed one drink, and left twenty minutes after Director Holloway passed through.\" Clem straightens. \"Twenty minutes. Not long enough to follow her to the office. Long enough to follow someone else.\"",
+          "sets_flag": "clem_told_you",
+          "requires_flag": "clem_codicil_available"
+        },
+        "holloway": {
+          "text": "\"Director Holloway?\" Clem's tone is the tone of someone who has opinions and has decided to keep them.\n\n\"She comes in Tuesdays. Has one drink. Tips well. Never talks to anyone she didn't come in with.\" Clem pauses. \"She came in the night before the Codicil went missing, which is unusual. She comes on Tuesdays. The Codicil went missing on a Thursday.\"",
+          "sets_flag": "knows_holloway_unusual"
+        },
+        "claim": {
+          "text": "\"Augusto Claim? Brotherhood?\" Clem shrugs with one shoulder, which is a very practiced shrug. \"Augusto's got a good heart and bad timing. He wanted that Codicil for the miners — genuinely. He also wanted to be the one who got it for them, because Augusto doesn't entirely separate 'doing good' from 'being seen doing good.' That's not a flaw. It's a human thing.\" A pause. \"Also he runs a tab here I'll never see paid off, which I mention for completeness.\"",
+          "sets_flag": null
+        },
+        "unknown_person": {
+          "text": "\"The forgettable one?\" Clem considers. \"Left through the back. Which means maintenance access. Which means they knew the station layout. Which means they weren't passing through.\" Clem sets down the glass. \"Whoever they were, they were here for a reason. They're probably still here.\" Clem picks up the glass again. \"Or they're not. This is the frontier. Things go either way.\"",
+          "sets_flag": "knows_suspect_in_maintenance",
+          "requires_flag": "clem_told_you"
+        },
+        "history": {
+          "text": "\"How long have I been here?\" Clem looks at you the way people look at questions they didn't expect. \"Twelve years. Came out on a freight run, decided the freight could go on without me, and stayed.\" A small pause that might be a smile. \"The Sprawl gets into you. Doesn't let go. Not an insult — just true.\"",
+          "sets_flag": null
+        }
+      },
+      "default": "Clem listens to your question with the patience of someone who has learned that most questions eventually come to the point. \"Can't help you with that specifically. But you might ask about the Codicil, the regulars, or whatever's on your mind.\""
+    }
+  },
+  "sheriff_vasquez": {
+    "name": "Sheriff Marta Vasquez",
+    "aliases": ["sheriff", "vasquez", "marta", "the sheriff"],
+    "description": "Sheriff Vasquez has the face of someone who started out with a great deal of idealism and has been carefully converting it, year by year, into competence. She is somewhere in her forties, though frontier years count for more than standard ones. The badge on her chest is worn but polished. The expression on her face says: I am trying to help you, and I would appreciate it if you would let me.",
+    "examine_detail": "The Sheriff has three things on her desk at all times: a mug of coffee in various states of heat, a photograph of someone who must be family (you can't see the face), and a small carved figure of a horse that she picks up when she's thinking. She's currently picking up the horse.",
+    "location": "sheriffs_office",
+    "dialogue": {
+      "greeting": "Sheriff Vasquez looks up from an impressive pile of paperwork with the expression of someone who has been hoping you'd leave and is deeply unsurprised that you haven't.\n\n\"You got a problem, drifter? Because I got seventeen problems already and I'm running out of desk space to put them.\"",
+      "topics": {
+        "codicil": {
+          "text": "The Sheriff sets down the carved horse.\n\n\"The Quantum Codicil.\" Her voice goes flat in the way voices go flat when they're holding something down. \"Went missing forty-eight hours ago from the Mining Claim Office's secure file cabinet. Three possible people who knew it was there, two of whom have alibis I can't break and one of whom I haven't been able to find.\" She looks at you steadily. \"There's a two-thousand credit reward for its return. No conditions on who returns it. That's not because I'm naive — it's because I want it back more than I want the politics.\"",
+          "sets_flag": "sheriff_codicil_briefed"
+        },
+        "help": {
+          "text": "Vasquez studies you for a long moment. The kind of study that's trying to work out whether you're useful or going to be another problem.\n\n\"You want to help.\" She says it like a statement, not a question. \"I've got a station on the edge of a faction war over a data crystal the size of my thumb. My deputy patrols on a schedule that apparently someone used to time a theft. And I've got one lead I can't pin down — a third party, nobody I know.\" She picks up the horse again. \"If you find something, you tell me first. Deal?\"",
+          "sets_flag": "working_with_sheriff"
+        },
+        "suspects": {
+          "text": "\"Three suspects.\" The Sheriff ticks them on her fingers. \"Holloway for the Concern — she had access, she had motive, she had the opportunity. Claim for the Brotherhood — ditto, although he'd have had to get past security in a way that doesn't fit what I know about him. And the unknown third party that Clem saw — someone nobody recognizes, which on a station this size means either they came in on a recent ship or they've been here so long they're invisible.\" She stops. \"Check the docking logs. Recent arrivals, last three weeks.\"",
+          "sets_flag": "knows_check_docking_logs",
+          "requires_flag": "working_with_sheriff"
+        },
+        "revolver": {
+          "text": "Vasquez glances at the empty hook on the equipment rack. Her expression does something small and controlled.\n\n\"My father's revolver went missing yesterday. From the rack.\" A pause. \"I know who took it. I'm choosing to deal with one crisis at a time.\"",
+          "sets_flag": "knows_revolver_missing"
+        },
+        "tack7": {
+          "text": "\"TACK-7 is the best deputy I've had, and I've had four.\" The Sheriff says this with something close to warmth. \"They take everything literally, which out here is sometimes the only way to stay honest. The metaphors thing —\" She almost smiles. \"I told them it would help. It's helping. Just slowly.\"",
+          "sets_flag": null
+        }
+      },
+      "default": "Vasquez looks at you with the focused attention of someone who doesn't have time to waste but is choosing to spend some on you anyway. \"If you've got a specific question, ask it straight. We don't have time for the scenic route.\""
+    }
+  },
+  "claim_clerk": {
+    "name": "Claims Clerk",
+    "aliases": ["clerk", "claims clerk", "office clerk"],
+    "description": "The claims clerk is the kind of person who chose bureaucracy as a vocation rather than a career, which makes them rare and slightly formidable. They have the organized mind of someone who has cross-referenced many thousands of documents and has opinions about filing systems that they would share if you asked, and possibly if you didn't.",
+    "examine_detail": "The clerk's workspace is a model of organization. Color-coded folders, labeled bins, a small calendar with notations in code that only the clerk understands. There is also a small cactus on the corner of the desk, which is either a statement about desert themes or simply a plant that requires minimal attention. Possibly both.",
+    "location": "mining_claim_office",
+    "dialogue": {
+      "greeting": "The clerk looks up with the expression of someone who has processed many requests today and will process many more and has achieved a kind of administrative transcendence about this fact. \"Claim number?\" they ask, by way of greeting.",
+      "topics": {
+        "codicil": {
+          "text": "\"The Quantum Codicil.\" The clerk's expression does something complicated. \"It was stored in this office. In the secure file cabinet. Which is not a fact I should be sharing with members of the public, and I would appreciate it if we could proceed as though you derived that information some other way.\" They straighten a folder that doesn't need straightening. \"It is not in the secure file cabinet anymore. This is a significant administrative irregularity.\"",
+          "sets_flag": "codicil_was_in_claim_office"
+        },
+        "claim_registry": {
+          "text": "\"The registry is a public document, technically. You may read it if you have a legitimate interest.\" The clerk's tone suggests that 'legitimate interest' is a category they feel strongly about. \"If you're looking at LV-7-Gamma, I'll tell you what I told everyone else: the Concern's claim is valid but dormant. The Codicil exists. The question of who should hold it legally is.\" A pause. \"Contested.\"",
+          "sets_flag": null
+        },
+        "year": {
+          "text": "\"The year Dustpocket Station was commissioned?\" The clerk looks at you as though this is an unusual question, then accepts that they work in a filing office and unusual questions are professionally normal. \"Year 2001. Fourteen years ago. Is there something specific you need that information for?\" They pause. \"Never mind. I've learned not to ask.\"",
+          "sets_flag": "knows_station_year"
+        },
+        "access": {
+          "text": "\"Who had access to the secure file cabinet?\" The clerk aligns a pen with the edge of a folder. \"Myself. The Sheriff. Director Holloway, as station administrator. And anyone with a universal key, which is a theoretical category I choose not to think about too often.\"",
+          "sets_flag": "knows_cabinet_access"
+        }
+      },
+      "default": "The clerk regards your question through the scratched transparent aluminum with patient professionalism. \"I can help you with claim registration, claim status inquiries, or general registry information. Anything outside that scope is above my authority, below my pay grade, or both.\""
+    }
+  },
+  "accountant_prisoner": {
+    "name": "Syndicate Accountant",
+    "aliases": ["accountant", "prisoner", "detainee", "person in cell"],
+    "description": "The Syndicate accountant is doing something remarkable: being detained in a holding cell and managing to project the air of someone attending a meeting that has run slightly over time. They are impeccably dressed, which is either genuine dignity or a coping mechanism, and they are reading a spreadsheet on a handheld device.",
+    "examine_detail": "The accountant's jacket has the Syndicate's ouroboros logo on the breast pocket. Their shoes are real leather. They have not looked up from the spreadsheet since you entered, which might be rudeness or might be the professional's ability to work anywhere.",
+    "location": "holding_cells",
+    "dialogue": {
+      "greeting": "The accountant looks up from the spreadsheet with the expression of someone who considers eye contact a business transaction. \"You're not the Sheriff,\" they observe. \"Or the Deputy. You must be the drifter everyone's talking about.\" They return to the spreadsheet. \"I don't suppose you could arrange for my early release? The situation is becoming inconvenient.\"",
+      "topics": {
+        "codicil": {
+          "text": "\"The Quantum Codicil.\" The accountant closes the spreadsheet with the deliberateness of someone putting away a card they're not ready to play yet. \"I am not authorized to discuss the Codicil. I will tell you that the Syndicate's interest in the matter is purely administrative — we facilitate transactions; we don't initiate them.\" A pause. \"That's on the record. Off the record: find Director Holloway. Whatever she told you, she's not the one driving this.\"",
+          "sets_flag": "accountant_hinted_holloway"
+        },
+        "keycard": {
+          "text": "The accountant looks at you for a long moment. Then they reach into their jacket pocket and produce a keycard.\n\n\"I'm going to be here until the Sheriff decides to release me or charge me, whichever comes first. If I'm charged, this becomes evidence. If I'm released, I'd prefer to leave without it being logged.\" They hold it through the bars. \"It opens the anteroom below the station. And the safe. Take it. Do with it what you think is right.\"",
+          "sets_flag": "has_syndicate_keycard",
+          "gives_item": "syndicate_keycard",
+          "requires_flag": "accountant_hinted_holloway"
+        },
+        "syndicate": {
+          "text": "\"The Syndicate,\" the accountant says, with the tone of someone who has given this description many times and has stripped it to essentials, \"facilitates commerce between parties who would otherwise be in active conflict. We are not neutral — neutrality is an illusion. We are balanced. There is a difference.\" They pick up the spreadsheet again. \"We keep the station running. That's all. What runs on the station is other people's business.\"",
+          "sets_flag": null
+        },
+        "release": {
+          "text": "\"The Sheriff has declined to tell me the specific charge, which suggests she doesn't have one yet and is hoping I'll say something useful in the meantime.\" The accountant seems almost amused. \"I have not said anything useful. I am very good at this.\" A pause. \"You could tell her I'll cooperate if she releases me. That's a negotiating position, not a promise.\"",
+          "sets_flag": null
+        }
+      },
+      "default": "The accountant weighs your question with the deliberate neutrality of a scale. \"I'm afraid that falls outside what I can discuss at present. Ask me about the Syndicate, the Codicil, or the terms of my release. Those I can address.\""
+    }
+  },
+  "augusto_claim": {
+    "name": "Augusto Claim",
+    "aliases": ["augusto", "claim", "brotherhood leader", "free claim"],
+    "description": "Augusto Claim is a large man who takes up space with the easy confidence of someone who has spent years working in environments where not taking up space gets you killed. He's perhaps fifty, with the kind of hands that have actually worked a claim and the kind of eyes that have spent years watching other people benefit from that work. He is currently nursing a drink that has been mostly untouched for an hour.",
+    "examine_detail": "Augusto wears the Brotherhood's emblem — a pickaxe crossed with a surveying rod — on his jacket, not hidden. He has the look of someone who decided long ago that if you're going to believe in something, you might as well let people know. There are calluses on his palms from before he became a leader, and he hasn't tried to hide those either.",
+    "location": "rusty_spur",
+    "dialogue": {
+      "greeting": "Augusto Claim looks up from his drink with the measured attention of someone who has learned to assess strangers quickly and at length. \"Drifter,\" he says. It's not an insult. \"Clem said you were asking questions. I've been asking the same ones for two days.\" He gestures to the seat across from him. \"Sit down. Let's see if our questions overlap.\"",
+      "topics": {
+        "codicil": {
+          "text": "Augusto sets down his glass with the deliberateness of someone choosing words the same way.\n\n\"The Quantum Codicil is a title deed to asteroid LV-7-Gamma.\" He says it plainly, like a man who doesn't see the point in dressing up facts. \"That asteroid has enough extractable ore to fund a generation of independent claims. The Concern's been sitting on it for fourteen years doing nothing, because it's cheaper to own things than to work them.\" He meets your eyes. \"The Brotherhood wants to work it. The miners on this station want to work it. That's all this is. Property that should be in use, in the hands of people who'll use it.\"",
+          "sets_flag": "knows_augusto_position"
+        },
+        "brotherhood": {
+          "text": "\"Free Claim Brotherhood.\" Augusto says it without the speech — he's given the speech, you can tell. \"We're not revolutionaries. We're not criminals. We're miners and surveyors and claim officers who got tired of watching corporations file claims on everything within reach and then file extensions when they don't work them.\" A pause. \"The law says an unused claim can be contested after ten years. The Concern's lawyers say the law says something else. The Brotherhood says: let's find out who's right. In court. With evidence.\" He picks up his glass. \"The Codicil is that evidence.\"",
+          "sets_flag": null
+        },
+        "holloway": {
+          "text": "\"Holloway.\" Augusto considers this carefully. \"I don't think she stole the Codicil. I know everyone assumes Brotherhood or Concern, but Holloway's smarter than that. Stealing the Codicil doesn't help the Syndicate — it makes every faction on the station point at them.\" He frowns. \"Someone wanted chaos. Holloway wants stability. So does the Sheriff.\" He looks at you. \"The person who benefits from Concern and Brotherhood at each other's throats isn't either of them. Think about that.\"",
+          "sets_flag": "augusto_fingered_third_party"
+        },
+        "deal": {
+          "text": "Augusto leans forward.\n\n\"I'm not going to offer you credits. I don't have Holloway's budget.\" He says it without embarrassment. \"What I can offer: if the Brotherhood gets the Codicil, we contest the claim in court, we win — and the people on this station who've been scraping by on contract work get first rights to the extraction operation. That's jobs. Real ones.\" He sits back. \"That's what the Codicil is worth to me. Not power. Not influence. Work, for people who need it.\" He holds your gaze. \"You decide if that's worth anything to you.\"",
+          "sets_flag": "augusto_deal_offered"
+        }
+      },
+      "default": "Augusto considers your question with the patience of a man who has spent a lot of time waiting for systems to move. \"Ask me about the Codicil, the Brotherhood, or the situation. I'll tell you what I know, straight.\""
+    }
+  },
+  "director_holloway": {
+    "name": "Director Fen Holloway",
+    "aliases": ["holloway", "director", "fen", "the director"],
+    "description": "Director Fen Holloway has the quality of someone who has spent so long being entirely in control of every situation that 'out of control' has become a purely theoretical concept. She is perhaps fifty, perhaps older, with the kind of stillness that only comes from knowing that reactions are a resource and she has decided to spend them carefully.",
+    "examine_detail": "Holloway's desk has exactly three objects on it: a terminal, a glass of water, and a single sheet of paper. The paper is face-down. She has not looked at it since you entered. She has not needed to.",
+    "location": "syndicate_inner_office",
+    "dialogue": {
+      "greeting": "Director Holloway looks up from whatever she was doing with the expression of someone who was expecting you, which is unsettling because you were not expecting to be expected.\n\n\"Sit,\" she says. It is not a request. \"I've been wondering when you'd find your way down here. You took longer than I expected, which means either you're thorough or you were distracted. Either quality has its uses.\"",
+      "topics": {
+        "codicil": {
+          "text": "Holloway picks up the glass of water. Puts it down.\n\n\"The Quantum Codicil.\" She says it with the care of someone handling something they respect. \"The Concern's position is that it is our property by right of original claim. The Brotherhood's position is that an unused claim is a forfeited one. The Syndicate's position is that whoever holds it needs us to transfer it, so the question of who holds it is — in some ways — secondary.\" A pause. \"My position is more specific. Do you want to hear it?\"",
+          "sets_flag": "holloway_codicil_offered"
+        },
+        "codicil_position": {
+          "text": "\"The Codicil was stolen. Not by me — I know everyone thinks it was. By the person who is currently in your pocket.\" Holloway watches you. \"Not literally. Metaphorically. The person who pointed you here without pointing you here. The person whose interests are served by the Concern and the Brotherhood going to war over a crystal that won't actually decide anything legally.\" She picks up the paper. Puts it face-up. It is a contract. \"Someone is playing all three factions. I want to know who. I suspect you're closer to finding out than I am.\"",
+          "sets_flag": "holloway_revealed_third_party",
+          "requires_flag": "holloway_codicil_offered"
+        },
+        "syndicate": {
+          "text": "\"The Syndicate runs Dustpocket Station,\" Holloway says, as though correcting a minor factual error. \"The Concern owns things. The Brotherhood digs things. The Syndicate makes it possible for both of those activities to happen in proximity without either party killing the other. Usually.\" A pause. \"This is not a power play. This is infrastructure. What the Syndicate wants is a functional station. What I want is the same thing, which is why I took this job.\"",
+          "sets_flag": null
+        },
+        "unknown_suspect": {
+          "text": "Holloway is quiet for a moment that has a specific shape to it.\n\n\"The person Clem saw. The forgettable one.\" She nods. \"I know. I've been trying to identify them for two days. They came in on a freighter registered to a shell company. The shell company's address is a forwarding service on a station four systems away.\" She looks at you. \"They're professional. They planned this. The question is who sent them and what they want the chaos to cover.\"",
+          "sets_flag": "holloway_knows_suspect",
+          "requires_flag": "clem_told_you"
+        },
+        "deal": {
+          "text": "\"What I'm offering,\" Holloway says, with the precision of someone who has rehearsed this, \"is simple. Find the Codicil. Find the third party. Bring both to me.\" She slides the contract across the desk. \"Five thousand credits and the Syndicate's acknowledgment that you performed a service. That's worth more than the credits, out here.\" A pause. \"The Sheriff wants the Codicil returned. So do I. Our goals are the same. Our methods differ. You can work for both of us.\"",
+          "sets_flag": "holloway_deal_offered"
+        }
+      },
+      "default": "Director Holloway regards your question with the patience of someone who has learned that not everything needs an immediate answer. \"Ask me about the Codicil, the Syndicate, the station, or the situation. I'll tell you what I can, and I'll be honest about what I can't.\""
+    }
+  }
+}
