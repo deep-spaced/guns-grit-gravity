@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import sys
 import os
+from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.staticfiles import StaticFiles
@@ -19,13 +20,19 @@ sys.path.insert(0, os.path.dirname(__file__))
 from engine import Engine
 from web_narrator import WebNarrator
 
+BASE = Path(__file__).parent
+DIST = BASE / "frontend" / "dist"
+
 app = FastAPI(title="Guns, Grit & Gravity")
-app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "static")), name="static")
+
+# Serve Vite build assets (JS, CSS, images)
+if (DIST / "assets").exists():
+    app.mount("/assets", StaticFiles(directory=str(DIST / "assets")), name="assets")
 
 
 @app.get("/")
 async def index():
-    return FileResponse(os.path.join(os.path.dirname(__file__), "static", "index.html"))
+    return FileResponse(str(DIST / "index.html"))
 
 
 @app.websocket("/ws")

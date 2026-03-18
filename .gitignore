@@ -6,3 +6,5 @@ __pycache__/
 dist/
 build/
 .eggs/
+frontend/node_modules/
+frontend/dist/
